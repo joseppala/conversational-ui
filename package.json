@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/joseppala/conversational-ui#readme",
   "dependencies": {
-    "@babel/polyfill": "^7.4.4"
+    "@babel/polyfill": "^7.4.4",
+    "vue": "^2.6.10"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
