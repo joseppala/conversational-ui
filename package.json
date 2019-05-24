@@ -3,7 +3,11 @@
   "version": "0.1.0",
   "description": "Conversational user interface component created with Vue",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "serve": "webpack-dev-server --config webpack.config.js",
+    "watch": "webpack --watch --config webpack.config.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joseppala/conversational-ui.git"
