@@ -5,9 +5,13 @@
       class="message-container"
       v-for="(msg, i) in messages" :key="i">
       <message-text-component
+        v-if="msg.type === 'TEXT'"
         :text="msg.text"
         :sender="msg.sender">
       </message-text-component>
+      <spinner-component
+        v-if="msg.type === 'SPINNER'">
+      </spinner-component>
     </div>
     <div class="options-container">
       <option-component
@@ -23,12 +27,13 @@
 <script>
 import OptionComponent from './OptionComponent.vue';
 import MessageTextComponent from './MessageTextComponent.vue';
-
+import SpinnerComponent from './SpinnerComponent.vue';
 
 export default {
   components: {
     OptionComponent,
-    MessageTextComponent
+    MessageTextComponent,
+    SpinnerComponent
   },
   props: {
     messages: Array,
