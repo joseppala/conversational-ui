@@ -3,42 +3,58 @@
   <div class="message-list">
     <div
       class="message-container"
+      :style="messageContainerStyles"
       v-for="(msg, i) in messages" :key="i">
-      <message-text-component
-        v-if="msg.type === 'TEXT'"
+      <message-text
+        v-if="msg.type === 'TEXT' && msg.sender === 'USER'"
         :text="msg.text"
-        :sender="msg.sender">
-      </message-text-component>
-      <spinner-component
-        v-if="msg.type === 'SPINNER'">
-      </spinner-component>
+        :styles="styles.message + styles.messageUser">
+      </message-text>
+      <message-text
+        v-if="msg.type === 'TEXT' && msg.sender === 'BOT'"
+        :text="msg.text"
+        :styles="styles.message + styles.messageBot">
+      </message-text>
+      <message-spinner
+        v-if="msg.type === 'SPINNER'"
+        :styles="styles.message + styles.messageBot">
+      </message-spinner>
     </div>
     <div class="options-container">
-      <option-component
+      <message-option
         v-for="(option, i) in options" :key="i"
         :text="option.text"
+        :styles="styles.option"
         @selected="$emit('optionSelected', option)">
-      </option-component>
+      </message-option>
     </div>
   </div>
 </div>
 </template>
 
 <script>
-import OptionComponent from './OptionComponent.vue';
-import MessageTextComponent from './MessageTextComponent.vue';
-import SpinnerComponent from './SpinnerComponent.vue';
+import MessageOption from './MessageOption.vue';
+import MessageText from './MessageText.vue';
+import MessageSpinner from './MessageSpinner.vue';
 
 export default {
   components: {
-    OptionComponent,
-    MessageTextComponent,
-    SpinnerComponent
+    MessageOption,
+    MessageText,
+    MessageSpinner
   },
   props: {
     messages: Array,
-    options: Array
+    options: Array,
+    styles: Object
   },
+  computed: {
+    messageContainerStyles() {
+      return `
+        margin: ${this.styles.message.margin};
+      `;
+    }
+  }
 }
 </script>
 
@@ -50,7 +66,6 @@ export default {
 }
 .message-container {
   position: relative;
-  margin: 10px;
   overflow: hidden;
 }
 </style>

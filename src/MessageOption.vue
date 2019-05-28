@@ -1,6 +1,7 @@
 <template>
 <div
-  class="option"
+  class="message-option"
+  :style="styles"
   @click="$emit('selected')">
   {{text}}
 </div>
@@ -9,17 +10,14 @@
 <script>
 export default {
   props: {
-    text: String
+    text: String,
+    styles: String
   },
 }
 </script>
 
 <style scoped>
-.option {
+.message-option {
   display: inline-block;
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 1000px;
-  border: 2px solid #4baeff;
 }
 </style>

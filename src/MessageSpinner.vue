@@ -1,24 +1,26 @@
 <template>
-<div class="spinner">
+<div class="message-spinner"
+  :style="styles">
   <div class="dot dot1"></div>
   <div class="dot dot2"></div>
   <div class="dot dot3"></div>
 </div>
 </template>
 
+<script>
+export default {
+  props: {
+    styles: String
+  }
+}
+</script>
+
 <style scoped>
-.spinner {
+.message-spinner {
   text-align: center;
   transition: opacity 0.3s;
   opacity: 1;
-  border: 2px solid;
-  border-radius: 8px;
-  max-width: 85%;
-  padding: 14px 16px;
   display: inline-block;
-  background-color: #f4f4f4;
-  border-color: #eeeeee;
-  line-height: 6px;
 }
 .dot {
   display: inline-block;
