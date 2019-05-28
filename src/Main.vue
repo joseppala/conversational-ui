@@ -43,6 +43,9 @@ export default {
           font-weight: normal;
           color: #333333;
           background-color: #ffffff;
+        `,
+        image: `
+          margin: 10px 10px 0 10px;
         `
       },
       dialogue: [
