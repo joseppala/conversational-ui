@@ -3,8 +3,8 @@
   <div class="message-list">
     <div
       class="message-container"
-      :style="messageContainerStyles"
-      v-for="(msg, i) in messages" :key="i">
+      v-for="(msg, i) in messages"
+      :key="'message-' + i">
       <message-text
         v-if="msg.type === 'TEXT' && msg.sender === 'USER'"
         :text="msg.text"
@@ -22,12 +22,14 @@
     </div>
     <div class="options-container">
       <message-option
-        v-for="(option, i) in options" :key="i"
+        v-for="(option, i) in options"
+        :key="'option-' + i"
         :text="option.text"
         :styles="styles.option"
         @selected="$emit('optionSelected', option)">
       </message-option>
     </div>
+    <div ref="bottom-element"></div>
   </div>
 </div>
 </template>
@@ -48,11 +50,24 @@ export default {
     options: Array,
     styles: Object
   },
-  computed: {
-    messageContainerStyles() {
-      return `
-        margin: ${this.styles.message.margin};
-      `;
+  watch: {
+    messages() {
+      this.scrollToBottom();
+    },
+    options() {
+      this.scrollToBottom();
+    }
+  },
+  methods: {
+    scrollToBottom() {
+      this.$nextTick(() => {
+        this.scrollToEl(this.$refs['bottom-element']);
+      });
+    },
+    scrollToEl(el) {
+      if (el.scrollIntoView) {
+        el.scrollIntoView(false);
+      }
     }
   }
 }
