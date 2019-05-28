@@ -95,7 +95,10 @@ export default {
       const branch = this.dialogue[branchIndex];
       if (!branch) { return; }
       const node = branch.nodes[nodeIndex];
-      if (!node) { return; }
+      if (!node) {
+        this.$emit('end');
+        return;
+      }
       let cb;
       if (node.type === 'OPTIONS') {
         cb = () => {
