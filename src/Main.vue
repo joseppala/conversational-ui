@@ -22,7 +22,7 @@ export default {
           border-radius: 8px;
           padding: 12px 16px;
           font-size: 1rem;
-          margin: 10px;
+          margin: 10px 10px 0 10px;
         `,
         messageBot: `
           color: #333333;
