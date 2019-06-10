@@ -33,6 +33,10 @@
         :link-styles="styles.link"
         :container-styles="styles.message + styles.messageBot">
       </message-link>
+      <message-video-you-tube
+        v-if="msg.type === 'VIDEO_YOUTUBE'"
+        :video="msg.video">
+      </message-video-you-tube>
     </div>
     <div class="options-container">
       <message-option
@@ -54,6 +58,7 @@ import MessageText from './MessageText.vue';
 import MessageSpinner from './MessageSpinner.vue';
 import MessageImage from './MessageImage.vue';
 import MessageLink from './MessageLink.vue';
+import MessageVideoYouTube from './MessageVideoYouTube.vue';
 
 export default {
   components: {
@@ -61,7 +66,8 @@ export default {
     MessageText,
     MessageSpinner,
     MessageImage,
-    MessageLink
+    MessageLink,
+    MessageVideoYouTube
   },
   props: {
     messages: Array,
