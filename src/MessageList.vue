@@ -25,6 +25,14 @@
         :styles="styles.image"
         @loaded="scrollToBottom">
       </message-image>
+      <message-link
+        v-if="msg.type === 'LINK'"
+        :text="msg.text"
+        :url="msg.url"
+        :target="msg.target"
+        :link-styles="styles.link"
+        :container-styles="styles.message + styles.messageBot">
+      </message-link>
     </div>
     <div class="options-container">
       <message-option
@@ -45,13 +53,15 @@ import MessageOption from './MessageOption.vue';
 import MessageText from './MessageText.vue';
 import MessageSpinner from './MessageSpinner.vue';
 import MessageImage from './MessageImage.vue';
+import MessageLink from './MessageLink.vue';
 
 export default {
   components: {
     MessageOption,
     MessageText,
     MessageSpinner,
-    MessageImage
+    MessageImage,
+    MessageLink
   },
   props: {
     messages: Array,
