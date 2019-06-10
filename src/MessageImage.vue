@@ -1,7 +1,6 @@
 <template>
 <div
-  class="message-image"
-  :style="styles">
+  class="message-image">
   <img
     :src="url"
     @load="$emit('loaded')" />
@@ -12,7 +11,6 @@
 export default {
   props: {
     url: String,
-    styles: String
   }
 }
 </script>

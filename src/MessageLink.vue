@@ -15,8 +15,20 @@ export default {
     text: String,
     url: String,
     target: String,
-    linkStyles: String,
-    containerStyles: String
+    styles: Object
+  },
+  computed: {
+    containerStyles() {
+      return `
+        border: ${this.styles.messageBorderWidth} solid;
+        border-radius: ${this.styles.messageBorderRadius};
+        border-color: ${this.styles.messageBorderColorBot};
+        background-color: ${this.styles.messageBgColorBot};
+      `;
+    },
+    linkStyles() {
+      return `color: ${this.styles.messageLinkColor}`
+    }
   }
 }
 </script>
@@ -25,5 +37,7 @@ export default {
 .message-link {
   max-width: 85%;
   display: inline-block;
+  padding: 10px 16px;
+  margin: 10px 10px 0 10px;
 }
 </style>

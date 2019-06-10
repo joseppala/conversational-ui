@@ -1,6 +1,6 @@
 <template>
 <div class="message-spinner"
-  :style="styles">
+  :style="style">
   <div class="dot dot1"></div>
   <div class="dot dot2"></div>
   <div class="dot dot3"></div>
@@ -10,7 +10,18 @@
 <script>
 export default {
   props: {
-    styles: String
+    styles: Object
+  },
+  computed: {
+    style() {
+      return `
+        border: ${this.styles.messageBorderWidth} solid;
+        border-radius: ${this.styles.messageBorderRadius};
+        color: ${this.styles.messageTextColorBot};
+        border-color: ${this.styles.messageBorderColorBot};
+        background-color: ${this.styles.messageBgColorBot};
+      `
+    }
   }
 }
 </script>
@@ -21,6 +32,8 @@ export default {
   transition: opacity 0.3s;
   opacity: 1;
   display: inline-block;
+  margin: 10px 10px 0 10px;
+  padding: 10px 16px;
 }
 .dot {
   display: inline-block;

@@ -1,5 +1,5 @@
 <template>
-<div>
+<div :style="style">
   <dialogue
     :dialogue="dialogue"
     :styles="styles">
@@ -17,36 +17,20 @@ export default {
   data() {
     return {
       styles: {
-        message: `
-          border: 2px solid;
-          border-radius: 8px;
-          padding: 12px 16px;
-          font-size: 1rem;
-          margin: 10px 10px 0 10px;
-        `,
-        messageBot: `
-          color: #333333;
-          border-color: #eeeeee;
-          background-color: #f4f4f4;
-        `,
-        messageUser: `
-          color: #ffffff;
-          border-color: #222222;
-          background-color: #222222;
-          float: right;
-        `,
-        option: `
-          border-radius: 1000px;
-          border: 2px solid #444444;
-          padding: 12px 20px;
-          margin: 10px;
-          font-weight: normal;
-          color: #333333;
-          background-color: #ffffff;
-        `,
-        image: `
-          margin: 10px 10px 0 10px;
-        `
+        messageBorderWidth: '2px',
+        messageBorderRadius: '8px',
+        messageTextColorBot: '#333333',
+        messageBgColorBot: '#f4f4f4',
+        messageBorderColorBot: '#eeeeee',
+        messageTextColorUser: '#ffffff',
+        messageBgColorUser: '#222222',
+        messageBorderColorUser: '#222222',
+        messageLinkColor: 'red',
+        optionTextColor: '#333333',
+        optionBgColor: '#ffffff',
+        optionBorderColor: '#444444',
+        containerMargin: '1rem',
+        fontSize: '1rem'
       },
       dialogue: [
         {
@@ -74,6 +58,14 @@ export default {
         }
       ]
     };
+  },
+  computed: {
+    style() {
+      return `
+        margin: ${this.containerMargin};
+        font-size: ${this.fontSize}rem;
+      `;
+    }
   }
 }
 </script>

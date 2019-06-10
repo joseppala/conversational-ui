@@ -6,23 +6,18 @@
       v-for="(msg, i) in messages"
       :key="'message-' + i">
       <message-text
-        v-if="msg.type === 'TEXT' && msg.sender === 'USER'"
+        v-if="msg.type === 'TEXT'"
         :text="msg.text"
-        :styles="styles.message + styles.messageUser">
-      </message-text>
-      <message-text
-        v-if="msg.type === 'TEXT' && msg.sender === 'BOT'"
-        :text="msg.text"
-        :styles="styles.message + styles.messageBot">
+        :sender="msg.sender"
+        :styles="styles">
       </message-text>
       <message-spinner
         v-if="msg.type === 'SPINNER'"
-        :styles="styles.message + styles.messageBot">
+        :styles="styles">
       </message-spinner>
       <message-image
         v-if="msg.type === 'IMAGE'"
         :url="msg.url"
-        :styles="styles.image"
         @loaded="scrollToBottom">
       </message-image>
       <message-link
@@ -30,8 +25,7 @@
         :text="msg.text"
         :url="msg.url"
         :target="msg.target"
-        :link-styles="styles.link"
-        :container-styles="styles.message + styles.messageBot">
+        :styles="styles">
       </message-link>
       <message-video-you-tube
         v-if="msg.type === 'VIDEO_YOUTUBE'"
@@ -43,7 +37,7 @@
         v-for="(option, i) in options"
         :key="'option-' + i"
         :text="option.text"
-        :styles="styles.option"
+        :styles="styles"
         @selected="$emit('optionSelected', option)">
       </message-option>
     </div>
