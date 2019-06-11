@@ -1,5 +1,6 @@
 <template>
-<div :style="style">
+<div class="conversational-ui"
+  :style="style">
   <dialogue
     :dialogue="dialogue"
     :styles="styles"
@@ -20,6 +21,9 @@ export default {
       styles: {
         messageBorderWidth: '2px',
         messageBorderRadius: '8px',
+        messageMargin: '10px',
+        messagePaddingVertical: '10px',
+        messagePaddingHorizontal: '16px',
         botMessageTextColor: '#333333',
         botMessageBgColor: '#f4f4f4',
         botMessageBorderColor: '#eeeeee',
@@ -30,7 +34,13 @@ export default {
         optionTextColor: '#333333',
         optionBgColor: '#ffffff',
         optionBorderColor: '#444444',
-        containerMargin: '1rem',
+        optionBorderRadius: '1000px',
+        optionBorderWidth: '2px',
+        optionPaddingVertical: '10px',
+        optionPaddingHorizontal: '20px',
+        optionMargin: '10px',
+        containerMarginVertical: '0',
+        containerMarginHorizontal: '10px',
         fontSize: '1rem'
       },
       messageDelayMultiplier: 1,
@@ -64,8 +74,8 @@ export default {
   computed: {
     style() {
       return `
-        margin: ${this.containerMargin};
-        font-size: ${this.fontSize}rem;
+        margin: ${this.styles.containerMarginVertical} ${this.styles.containerMarginHorizontal};
+        font-size: ${this.styles.fontSize};
       `;
     }
   }

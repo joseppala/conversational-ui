@@ -28,7 +28,6 @@ export default {
 
 <style scoped>
 .message-video {
-  margin: 10px 10px 0 10px;
   width: 85%;
   display: inline-block;
 }

@@ -24,6 +24,7 @@ export default {
         border-radius: ${this.styles.messageBorderRadius};
         border-color: ${this.styles.botMessageBorderColor};
         background-color: ${this.styles.botMessageBgColor};
+        padding: ${this.styles.messagePaddingVertical} ${this.styles.messagePaddingHorizontal};
       `;
     },
     linkStyles() {
@@ -37,7 +38,5 @@ export default {
 .message-link {
   max-width: 85%;
   display: inline-block;
-  padding: 10px 16px;
-  margin: 10px 10px 0 10px;
 }
 </style>

@@ -4,6 +4,7 @@
     <div
       class="message-container"
       v-for="(msg, i) in messages"
+      :style="messageContainerStyle"
       :key="'message-' + i">
       <message-text
         v-if="msg.type === 'TEXT'"
@@ -67,6 +68,11 @@ export default {
     messages: Array,
     options: Array,
     styles: Object
+  },
+  computed: {
+    messageContainerStyle() {
+      return `margin-top: ${this.styles.messageMargin}`;
+    }
   },
   watch: {
     messages() {

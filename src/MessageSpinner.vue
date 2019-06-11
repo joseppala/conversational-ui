@@ -20,6 +20,7 @@ export default {
         color: ${this.styles.botMessageTextColor};
         border-color: ${this.styles.botMessageBorderColor};
         background-color: ${this.styles.botMessageBgColor};
+        padding: ${this.styles.messagePaddingVertical} ${this.styles.messagePaddingHorizontal};
       `
     }
   }
@@ -32,8 +33,6 @@ export default {
   transition: opacity 0.3s;
   opacity: 1;
   display: inline-block;
-  margin: 10px 10px 0 10px;
-  padding: 10px 16px;
 }
 .dot {
   display: inline-block;

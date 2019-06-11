@@ -16,11 +16,13 @@ export default {
   computed: {
     style() {
       return `
-        border: ${this.styles.messageBorderWidth} solid;
-        border-radius: 1000px;
+        border: ${this.styles.optionBorderWidth} solid;
+        border-radius: ${this.styles.optionBorderRadius};
         color: ${this.styles.optionTextColor};
         border-color: ${this.styles.optionBorderColor};
         background-color: ${this.styles.optionBgColor};
+        padding: ${this.styles.optionPaddingVertical} ${this.styles.optionPaddingHorizontal};
+        margin: ${this.styles.optionMargin};
       `
     }
   }
@@ -30,9 +32,6 @@ export default {
 <style scoped>
 .message-option {
   display: inline-block;
-  border-radius: 1000px;
-  padding: 10px 20px;
-  margin: 10px;
   font-weight: normal;
 }
 </style>
