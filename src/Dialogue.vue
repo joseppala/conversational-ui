@@ -14,7 +14,7 @@ import MessageList from './MessageList.vue';
 import spinner from './spinnerMessage';
 
 const OPTION_SHOW_DELAY = 500;
-const DEFAULT_MESSAGE_DELAY = 300;
+const DEFAULT_MESSAGE_DELAY = 500;
 const NATURAL_REQUEST_DELAY = 300;
 const TEXT_MESSAGE_CHAR_WRITE_DELAY = 10;
 const TEXT_MESSAGE_CHAR_READ_DELAY = 30;
@@ -25,7 +25,8 @@ export default {
   },
   props: {
     dialogue: Array,
-    styles: Object
+    styles: Object,
+    messageDelayMultiplier: Number
   },
   data() {
     return {
@@ -72,7 +73,7 @@ export default {
       if (nodeIndex > 0) {
         const prevNode = branch.nodes[nodeIndex - 1];
         if (prevNode.type === 'TEXT') {
-          minDelay = prevNode.text.length * TEXT_MESSAGE_CHAR_READ_DELAY;
+          minDelay = prevNode.text.length * TEXT_MESSAGE_CHAR_READ_DELAY * this.messageDelayMultiplier;
         }
       }
       switch (node.type) {
@@ -81,7 +82,7 @@ export default {
           break;
         }
         case 'TEXT': {
-          delay = node.text.length * TEXT_MESSAGE_CHAR_WRITE_DELAY;
+          delay = node.text.length * TEXT_MESSAGE_CHAR_WRITE_DELAY * this.messageDelayMultiplier;
           break;
         }
         default: {

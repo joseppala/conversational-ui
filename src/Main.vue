@@ -2,7 +2,8 @@
 <div :style="style">
   <dialogue
     :dialogue="dialogue"
-    :styles="styles">
+    :styles="styles"
+    :messageDelayMultiplier="messageDelayMultiplier">
   </dialogue>
 </div>
 </template>
@@ -32,6 +33,7 @@ export default {
         containerMargin: '1rem',
         fontSize: '1rem'
       },
+      messageDelayMultiplier: 1,
       dialogue: [
         {
           branchId: "branch1",
