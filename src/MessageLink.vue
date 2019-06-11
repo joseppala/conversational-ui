@@ -22,8 +22,8 @@ export default {
       return `
         border: ${this.styles.messageBorderWidth} solid;
         border-radius: ${this.styles.messageBorderRadius};
-        border-color: ${this.styles.messageBorderColorBot};
-        background-color: ${this.styles.messageBgColorBot};
+        border-color: ${this.styles.botMessageBorderColor};
+        background-color: ${this.styles.botMessageBgColor};
       `;
     },
     linkStyles() {

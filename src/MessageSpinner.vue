@@ -17,9 +17,9 @@ export default {
       return `
         border: ${this.styles.messageBorderWidth} solid;
         border-radius: ${this.styles.messageBorderRadius};
-        color: ${this.styles.messageTextColorBot};
-        border-color: ${this.styles.messageBorderColorBot};
-        background-color: ${this.styles.messageBgColorBot};
+        color: ${this.styles.botMessageTextColor};
+        border-color: ${this.styles.botMessageBorderColor};
+        background-color: ${this.styles.botMessageBgColor};
       `
     }
   }

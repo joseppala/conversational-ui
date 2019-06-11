@@ -22,15 +22,15 @@ export default {
       if (this.sender === 'USER') {
         styl += `
           float: right;
-          color: ${this.styles.messageTextColorUser};
-          border-color: ${this.styles.messageBorderColorUser};
-          background-color: ${this.styles.messageBgColorUser};
+          color: ${this.styles.userMessageTextColor};
+          border-color: ${this.styles.userMessageBorderColor};
+          background-color: ${this.styles.userMessageBgColor};
         `;
       } else {
         styl += `
-          color: ${this.styles.messageTextColorBot};
-          border-color: ${this.styles.messageBorderColorBot};
-          background-color: ${this.styles.messageBgColorBot};
+          color: ${this.styles.botMessageTextColor};
+          border-color: ${this.styles.botMessageBorderColor};
+          background-color: ${this.styles.botMessageBgColor};
         `;
       }
       return styl;
