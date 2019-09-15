@@ -23,6 +23,7 @@ export default {
         background-color: ${this.styles.optionBgColor};
         padding: ${this.styles.optionPaddingVertical} ${this.styles.optionPaddingHorizontal};
         margin: ${this.styles.optionMargin};
+        box-shadow: ${this.styles.optionBoxShadow};
       `
     }
   }
